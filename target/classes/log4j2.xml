@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Properties>
+		<Property name="filename">./logs</Property> <!-- Specifies the base directory for log files -->
+	</Properties>
+	<Appenders>
+		<RollingFile name="file" fileName="${filename}/application.log" filePattern="${filename}-%d{HH:mm:ss.SSS}/application.log">
+			<PatternLayout>
+				<pattern>%d{HH:mm:ss.SSS} %msg%n</pattern> <!-- Defines the log message format with timestamp -->
+			</PatternLayout>
+			<SizeBasedTriggeringPolicy size="10 GB" /> <!-- Rolls over the log file when it reaches 10 gigabytes -->
+		</RollingFile>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} %msg%n" /> <!-- Defines the log message format for console output -->
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="INFO"> <!-- Specifies the root logger level -->
+			<AppenderRef ref="Console" /> <!-- Appends log messages to the console appender -->
+			<AppenderRef ref="file" /> <!-- Appends log messages to the file appender -->
+		</Root>
+	</Loggers>
+</Configuration>

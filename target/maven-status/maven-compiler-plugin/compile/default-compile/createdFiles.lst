@@ -1,0 +1,4 @@
+com\log\logs\service\LogGenerator.class
+com\log\logs\controller\LogController.class
+com\log\logs\VishalLogsProject1Application.class
+com\log\logs\ServletInitializer.class
